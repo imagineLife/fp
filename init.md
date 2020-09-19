@@ -28,8 +28,25 @@ const addOne => num => {
 
 **TOTAL**  
 ```js
-const addOne => num => num + 1
+const addOne = num => num + 1
 ```
 
-## Deterministic
+## Deterministic  
+A fn that ALWAYS gets the SAME output for every input  
+**NOT deterministic**  
+```js
+const getTimeGap => item => {
+	const now = new Date()
+	const itemTime = new Date(item.createdAt)
+	return now - itemTime 
+}
+```
+This always changes when running the fn, as the `now` time always changes.
+
+**Deterministic**  
+```js
+const getTimeGap = (dateStart, dateEnd) => dateEnd - dateStart
+```
+This will always return the same result with the same input.
+
 ## No Side Effects
