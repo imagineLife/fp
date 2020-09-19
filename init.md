@@ -1,46 +1,35 @@
-A Fn (from set theory)
+# T.O.C
+[A Function](#a-function)  
+[Functional Assumptions](#functional-assumptions)
+- [Total](#total)
+- [Deterministic](#deterministic)
+- [No Side-Effect](#no-side-effects)
+
+## A Function 
+from set theory
 - a single-value collection of pairs
+- i.e. input && output
 - input returns same output everytime
 
+## Functional assumptions
+1. Total
+2. Deterministic
+3. No Observable side-effects
 
-Functions have these one-word attributes
-Total
-- as opposed to a partial fn
-- takes an input && returns an output
-Deterministic
-- always one input returning one output
-No Observable Side-Effects
+### Total
+A total fn (_unlike a partial fn_) has 1 output for every input.  
+**NOT TOTAL**  
+```js
+const addOne => num => {
+	if(num === 0) return 1;
+	if(num === 2) return 3;
+}
+```
 
+**TOTAL**  
+```js
+const addOne => num => num + 1
+```
 
-Props Args && Currying
-Associative
-- GROUPINGS of numbers is irrelevant
-    - a + (b + c) same as (a+b) + c
-Commutative
-- ORDER is irrelevant
-    - d * e * f same as f * d * e
-Identity
-- hmmm
-- 
-Distributive
-* multiply a number by a group of numbers added together, or
-* do each multiply separately then add them
-    * ex 
-        * 3 * 6 same as (3*2) + 3*4
-
-
-
-Point-Free
-- a function or part-of-code not KNOWING domain-specific content
-    - client = `${firstName}-${lastName}`
-    - COULD BE
-    - mergedStr = `${a}-${b}`
-- 
-
-
-
-Partial Application Vs Currying
-Partial App
-- giving a fn only some of its parameters
-Currying
-- 
+## Deterministic
+## No Side Effects
