@@ -2,8 +2,6 @@
 Here are a few ways that functions can work...
  - associativie
  - commutative
- - identity
- - distributive
 
 ### Associative
 No matter how the 'parenthesis' of the guts of a fn are ordered, the result will not change. Here, the repeatative use of 'add' illustrates the associative principle:    
