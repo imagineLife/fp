@@ -1,4 +1,4 @@
-## Playing with Arguements + Orders
+## Playing with Arguments + Orders
 
 ### using 1 instead of 2 args
 ```js
@@ -20,3 +20,9 @@ const addOneArg = ([a,b]) => a + b
 	  ... the same function being passed as a param BUT passing a PAIR of args instead of an arr
 */
 const convertToAPairFromAFn = func => ([x,y] => f(x,y))
+
+/*
+	Call using...
+*/ 
+
+let res = convertToAPairFromAFn(add)([3,5])
