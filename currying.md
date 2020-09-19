@@ -25,7 +25,7 @@ const res = incFour(7)
    - passes 1 param to the curried version of add
    - THIS allows the NEXT call of 'add', which has gotten 'renamed' to 'incFour', to only take 1 param
 
-### Another Example
+### Another Example, getOddNumbers
 ```js
 const curried = fn => firstArg => secondArg => fn(firstArg, secondArg)
 
@@ -53,6 +53,22 @@ const getOddNumbers = curriedFilter(isOdd)
 const res = getOddNumbers([1,2,3,4,5,6,7,8,9])
 ```
 
+### Another Example, converting string split
+```js
+const curried = fn => firstArg => secondArg => fn(firstArg, secondArg)
+
+const uncurrieWords = str => str.split(' ');
+const testingString = 'something wicked this way comes'
+const res = uncurrieWords(testingString);
+
+
+const curriedWords = splitParam => str => str.split(splitParam);
+const splitAtSpaces = curriedWords(' ')
+
+const curRes = splitAtSpaces(testingString)
+// both return [ 'something', 'wicked', 'this', 'way', 'comes' ]
+```
+
 
 ### When to Curry?!
 When I want to 'remember' an argument of a fn.  
@@ -61,3 +77,8 @@ In the example of `getOddNumbers`, the filter fn is not written in one-line, rat
  - isOdd
  - curriedModulo
  - curried
+
+### Point-Free Programming
+Programming that does not include references to 'domain-specific' syntax...
+- using 'x' or 'y' instead of 'understandableVarName' or 'initialArray'
+
