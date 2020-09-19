@@ -1,0 +1,3 @@
+## Functional Programming
+Some thoughts
+
