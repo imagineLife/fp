@@ -30,7 +30,7 @@ const res = incFour(7)
 const curried = fn => firstArg => secondArg => fn(firstArg, secondArg)
 
 // returns the remainder of a divison
-const curriedModulo = curied((x,y) => y % x)
+const curriedModulo = curried((x,y) => y % x)
 
 /*
 	applies first arg to modulo to 2, 
@@ -55,4 +55,9 @@ const res = getOddNumbers([1,2,3,4,5,6,7,8,9])
 
 
 ### When to Curry?!
-When I want to 'remember' an argument of a fn
+When I want to 'remember' an argument of a fn.  
+In the example of `getOddNumbers`, the filter fn is not written in one-line, rather build through the compilation of...
+ - curriedFilter
+ - isOdd
+ - curriedModulo
+ - curried
