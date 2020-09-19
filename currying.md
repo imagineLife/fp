@@ -12,3 +12,11 @@ const incFour = curriedAdd(4)
 
 const res = incFour(7)
 ```
+
+### Whats happening here
+ - Add is a regular fn
+ - curriedAdd:
+   - applies currying to the add fn, allowing curriedAdd to be a placeholder of the add fn, and allowing curriedAdd to take 2 params, through separate fn calls
+ - incFour:
+   - passes 1 param to the curried version of add. THIS allows the NEXT call of 'add', which has gotten 'renamed' to 'incFour', to only take 1 param
+   -
