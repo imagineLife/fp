@@ -50,3 +50,20 @@ const getTimeGap = (dateStart, dateEnd) => dateEnd - dateStart
 This will always return the same result with the same input.
 
 ## No Side Effects
+A fn that has no observable functionality beyond computing a value from inputs.
+**WITH side-effects**  
+```js
+const add => (a,b) => {
+	console.log('Heres a side-effect');
+	return a + b
+}
+```
+The `console.log` is a side-effect, doing more than returning a value basaed on the inputs.
+
+**WITHOUT side-effects**  
+```js
+const add => (a,b) => {
+	console.log('Heres a side-effect');
+	return a + b
+}
+```
