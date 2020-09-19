@@ -5,6 +5,17 @@
 - [Deterministic](#deterministic)
 - [No Side-Effect](#no-side-effects)
 
+
+## Why Functional Programming?!  
+- Reliable  
+  - we can expect things from them
+- Portable
+- Re-usable
+  - NOT buried in a specific use-case
+- Testable
+- Composable
+  - put some functions together!
+ 
 ## A Function 
 from set theory
 - a single-value collection of pairs
