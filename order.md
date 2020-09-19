@@ -7,7 +7,11 @@ Here's the 'order' of processing these funcitonal programming notes...
  - total
  - deterministic
  - without side-effects
-2. 
+2. Property Types
+ - Associative
+ - Commutative
+3. Playing-with-Args
+ - transforming arg-count with a fn
 
 
 Thanks to Brian Lonsdorf @@ Frontend Masters
