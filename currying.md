@@ -39,6 +39,18 @@ const curriedModulo = curied((x,y) => y % x)
 */
 const isOdd = curriedModulo(2)
 
+/*
+	applies a fn to an arr, 
+	 but allows for 2 fn calls 
+	  to make this happen via the curried fn
+*/ 
+const curriedFilter = curried((filterFnParam, arr) => arr.filter(filterFnParam))
+
+const getOddNumbers = curriedFilter(isOdd)
+
+
+// here, the odd numbers will return from the filtered array
+const res = getOddNumbers([1,2,3,4,5,6,7,8,9])
 ```
 
 
