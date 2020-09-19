@@ -1,3 +1,4 @@
 ## Functional Programming
-Some thoughts
+Some thoughts.
+Here's the 'order' of processing these funcitonal programming notes...
 
