@@ -68,21 +68,35 @@
 
 
 
-// Currying part 3
-const curried = fn => firstArg => secondArg => fn(firstArg, secondArg)
+// Currying part 3, splitting a string
+// const curried = fn => firstArg => secondArg => fn(firstArg, secondArg)
 
-const uncurrieWords = str => str.split(' ');
-const testingString = 'something wicked this way comes'
-const res = uncurrieWords(testingString);
-console.log('uncurriedres')
-console.log(res)
+// const uncurrieWords = str => str.split(' ');
+// const testingString = 'something wicked this way comes'
+// const res = uncurrieWords(testingString);
+// console.log('uncurriedres')
+// console.log(res)
 
-const curriedWords = splitParam => str => str.split(splitParam);
-const splitAtSpaces = curriedWords(' ')
+// const curriedWords = splitParam => str => str.split(splitParam);
+// const splitAtSpaces = curriedWords(' ')
 
-const curRes = splitAtSpaces(testingString)
-console.log('curRes')
-console.log(curRes)
+// const curRes = splitAtSpaces(testingString)
+// console.log('curRes')
+// console.log(curRes)
 
+
+
+
+// Currying pt 4, curriedSlice
+const curriedSlice = start => end => arr => arr.slice(start,end)
+let startArr = [2,4,6,8,10,12,14,16];
+const res = curriedSlice(1)(3)(startArr)
+
+// Currying pt 5, extending above curry
+const skipFirst = curriedSlice(1)
+
+const lessFirst = skipFirst(5)(startArr)
+console.log('lessFirst')
+console.log(lessFirst)
 
 
