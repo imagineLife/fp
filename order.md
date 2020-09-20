@@ -12,6 +12,10 @@ Here's the 'order' of processing these funcitonal programming notes...
  - Commutative
 3. Playing-with-Args
  - transforming arg-count with a fn
+4. Currying
+  - examples...
+  	https://codepen.io/drboolean/pen/OJJOQMx
+	-
 
 
 Thanks to Brian Lonsdorf @@ Frontend Masters
