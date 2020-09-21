@@ -113,10 +113,22 @@ const first = itms => itms[0];
 /*
 	COMPOSE!!
 */ 
-const composeTwo = (f,g) => x => f(g(x));
+const comp2 = (f,g) => x => f(g(x));
+const comp3 = (f,g,h) => x => f(g(h(x)));
 
 
 //...two composed functions
-const shoutIt = composeTwo(exclaim, toUpper);
+const shoutIt = comp2(exclaim, toUpper);
 const composedWord = shoutIt('tears');				// returns "TEARS!"
-console.log(composedWord)
+// console.log(composedWord)
+
+// ...three composed functions
+const extraShout = str => `${str}!!`
+const megaYell = comp3(extraShout, exclaim, toUpper);
+const realLoud = megaYell('for fears')
+// console.log(realLoud);
+
+//  ALSO! same as...
+const megaYellAsTwo = comp2(extraShout, shoutIt);
+const realLoudAsTwo = megaYell('for fears')
+console.log(realLoudAsTwo);
