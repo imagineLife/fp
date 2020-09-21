@@ -14,19 +14,19 @@ const first = itms => itms[0];
 /*
 	COMPOSE!!
 */ 
-const composeTwo = (f,g) => x => f(g(x));
+const comp2 = (f,g) => x => f(g(x));
 
 
 //...two composed functions
-const shoutIt = composeTwo(exclaim, toUpper);
+const shoutIt = comp2(exclaim, toUpper);
 const composedWord = shoutIt('tears');
 ```
 Here...
- - **composeTwo** is a function that returns a function
+ - **comp2** is a function that returns a function
    - this fn takes 2 functions and a value as parameters
    - the first 2 params, the functions, get assembled
  - **shoutIt** STORES...
-   - composeTwo, called on 2 functions
+   - comp2, called on 2 functions
      - toUpper (_called first, reading from right-to-left_)
      - exclaim (_called 2nd, reading from right-to-left_)
  - **composedWord** stores...
@@ -56,7 +56,7 @@ console.log(realLoud);					//logs 'FOR FEARS!!!'
 ```js
 //  ALSO! same as...
 const megaYellAsTwo = comp2(extraShout, shoutIt);
-const realLoudAsTwo = megaYell('for fears')
+const realLoudAsTwo = megaYellAsTwo('for fears')
 console.log(realLoudAsTwo);				//logs 'FOR FEARS!!!'
 
 ```
