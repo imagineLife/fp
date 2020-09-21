@@ -88,15 +88,35 @@
 
 
 // Currying pt 4, curriedSlice
-const curriedSlice = start => end => arr => arr.slice(start,end)
-let startArr = [2,4,6,8,10,12,14,16];
-const res = curriedSlice(1)(3)(startArr)
+// const curriedSlice = start => end => arr => arr.slice(start,end)
+// let startArr = [2,4,6,8,10,12,14,16];
+// const res = curriedSlice(1)(3)(startArr)
 
-// Currying pt 5, extending above curry
-const skipFirst = curriedSlice(1)
+// // Currying pt 5, extending above curry
+// const skipFirst = curriedSlice(1)
 
-const lessFirst = skipFirst(5)(startArr)
-console.log('lessFirst')
-console.log(lessFirst)
+// const lessFirst = skipFirst(5)(startArr)
+// console.log('lessFirst')
+// console.log(lessFirst)
 
 
+
+
+
+
+// Compose
+const toUpper = str => str.toUpperCase();
+const exclaim = str => `${str}!`
+const first = itms => itms[0];
+
+
+/*
+	COMPOSE!!
+*/ 
+const composeTwo = (f,g) => x => f(g(x));
+
+
+//...two composed functions
+const shoutIt = composeTwo(exclaim, toUpper);
+const composedWord = shoutIt('tears');				// returns "TEARS!"
+console.log(composedWord)
