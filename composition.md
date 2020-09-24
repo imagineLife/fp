@@ -60,3 +60,36 @@ const realLoudAsTwo = megaYellAsTwo('for fears')
 console.log(realLoudAsTwo);				//logs 'FOR FEARS!!!'
 
 ```
+
+### Comparing composition to other programming paradigms
+- Composition
+```js
+const backwardString = compose(
+	join(''),
+	filter(x => x.length > 3),
+	reverse,
+	map(trim),
+	split(' ')
+	toLowerCase
+)
+```
+- reads right-to-left
+- "pipes" data through the compose functino in a linear fashion
+- Programmatic:
+```js
+const bakwardString = str => {
+	const lower = str.toLowerCase()
+	const words = lower.split();
+	words.reverse();
+	for(let i in words){
+		words[i] = words[i].trim
+	}
+	let keepers = []
+	for(let i in words){
+		if(words[i].length > 3){
+			keepers.push(words[i])
+		}
+	}
+	return keepers.join('')
+}
+```
