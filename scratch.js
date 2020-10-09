@@ -27,12 +27,18 @@
 
 
 // currying
-// const add = (a,b) => a + b;
+const add = (a,b) => a + b;
 
-// const curried = fn => firstArg => secondArg => fn(firstArg, secondArg)
+const curried = fn => firstArg => secondArg => fn(firstArg, secondArg)
 
-// const curriedAdd = curried(add)
-// const incFour = curriedAdd(4)
+const curriedAdd = curried(add)
+const incFour = curriedAdd(4)
+
+console.log('curriedAdd')
+console.log(curriedAdd.toString())
+console.log('incFour.toString()')
+console.log(incFour.toString())
+
 
 // const res = incFour(7)
 // console.log('res')
@@ -51,7 +57,7 @@
 // 	THIS IS THE FIRST EXAMPEL OF CURRYING IN ACTION HERE!
 // */
 // const isOdd = curriedModulo(2)
-
+// const isOdd = (x,y) => y % x;
 // /*
 // 	applies a fn to an arr, 
 // 	 but allows for 2 fn calls 
@@ -62,9 +68,60 @@
 // const getOddNumbers = curriedFilter(isOdd)
 
 // const res = getOddNumbers([1,2,3,4,5,6,7,8,9])
+// console.log('res')
+// console.log(res)
 
 
+/* 
+	Curry+arr filtering again
+*/
+const shirtsArr = [
+  {
+    brand: 'Simple',
+    size: 'S',
+    color: 'Dark Brown'
+  },
+  {
+    brand: 'Simple',
+    size: 'M',
+    color: 'Black'
+  },
+  {
+    brand: 'Simple',
+    size: 'S',
+    color: 'Dark Blue'
+  },
+  {
+    brand: 'Simple',
+    size: 'M',
+    color: 'Gray'
+	},
+  {
+    brand: 'Band',
+    size: 'L',
+    color: 'Black'
+  }
+]
 
+// const curried = fn => firstArg => secondArg => fn(firstArg, secondArg)
+
+const plusOne = curried(5)
+const onlySmalls = (x,y) => x.size === 'S';
+const noSmalls = (x,y) => x.size !== 'S'; 
+
+// /*
+// 	applies a fn to an arr, 
+// 	 but allows for 2 fn calls 
+// 	  to make this happen via the curried fn
+// */ 
+const curriedFilter = curried((filterFnParam, arr) => arr.filter(filterFnParam))
+
+const getSmalls = curriedFilter(onlySmalls)
+const getNoSmalls = curriedFilter(noSmalls)
+
+const res = getNoSmalls(shirtsArr)
+console.log('res')
+console.log(res)
 
 
 
@@ -105,30 +162,30 @@
 
 
 // Compose
-const toUpper = str => str.toUpperCase();
-const exclaim = str => `${str}!`
-const first = itms => itms[0];
+// const toUpper = str => str.toUpperCase();
+// const exclaim = str => `${str}!`
+// const first = itms => itms[0];
 
 
-/*
-	COMPOSE!!
-*/ 
-const comp2 = (f,g) => x => f(g(x));
-const comp3 = (f,g,h) => x => f(g(h(x)));
+// /*
+// 	COMPOSE!!
+// */ 
+// const comp2 = (f,g) => x => f(g(x));
+// const comp3 = (f,g,h) => x => f(g(h(x)));
 
 
-//...two composed functions
-const shoutIt = comp2(exclaim, toUpper);
-const composedWord = shoutIt('tears');				// returns "TEARS!"
-// console.log(composedWord)
+// //...two composed functions
+// const shoutIt = comp2(exclaim, toUpper);
+// const composedWord = shoutIt('tears');				// returns "TEARS!"
+// // console.log(composedWord)
 
-// ...three composed functions
-const extraShout = str => `${str}!!`
-const megaYell = comp3(extraShout, exclaim, toUpper);
-const realLoud = megaYell('for fears')
-// console.log(realLoud);
+// // ...three composed functions
+// const extraShout = str => `${str}!!`
+// const megaYell = comp3(extraShout, exclaim, toUpper);
+// const realLoud = megaYell('for fears')
+// // console.log(realLoud);
 
-//  ALSO! same as...
-const megaYellAsTwo = comp2(extraShout, shoutIt);
-const realLoudAsTwo = megaYell('for fears')
-console.log(realLoudAsTwo);
+// //  ALSO! same as...
+// const megaYellAsTwo = comp2(extraShout, shoutIt);
+// const realLoudAsTwo = megaYell('for fears')
+// console.log(realLoudAsTwo);
