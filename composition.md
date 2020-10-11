@@ -132,6 +132,9 @@ const res = getSmalls(allSizesArray);
 
 ```js
 const logIt = (tag) => (itm) => (console.log(tag, itm), itm);
+
+// used like...
+const res = compose(fn1, log("here:"), fn2);
 ```
 
 this...
