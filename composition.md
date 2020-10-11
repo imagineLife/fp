@@ -103,3 +103,26 @@ const bakwardString = (str) => {
 
 - **Unary** functions take 1 args
 - **Binary** functions take 2 args
+  Leveraging Composition and currying create end-user unary functions.
+
+#### Example
+
+Rather than writing...
+
+```js
+const onlyShortPeople = allPeople.filter((p) => p.size === "short");
+```
+
+Leveraging currying and composition can result in...
+
+```js
+// These can be extracted into a library file && imported into the end-developers code
+const curried = (fn) => (firstArg) => (secondArg) => fn(firstArg, secondArg);
+const filterAnArray = (filterFnParam, arr) => arr.filter(filterFnParam);
+const curriedFilter = curried(filterAnArray);
+const onlySmalls = (x, y) => x.size === "S";
+const getSmalls = curriedFilter(onlySmalls);
+
+// Here is a developer-friendly unary function
+const res = getSmalls(allSizesArray);
+```
