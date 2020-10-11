@@ -79,6 +79,7 @@ const backwardString = compose(
 
 - reads right-to-left
 - "pipes" data through the compose functino in a linear fashion
+- **very similar, almost identical, to dot chaining**
 - Programmatic:
 
 ```js
@@ -126,3 +127,15 @@ const getSmalls = curriedFilter(onlySmalls);
 // Here is a developer-friendly unary function
 const res = getSmalls(allSizesArray);
 ```
+
+### Loggind during composition + Currying
+
+```js
+const logIt = (tag) => (itm) => (console.log(tag, itm), itm);
+```
+
+this...
+
+- logs a string passed `tag`
+- logs the value `itm`
+- will not BREAK a chain of functions
