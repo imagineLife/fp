@@ -142,3 +142,6 @@ this...
 - logs a string passed `tag`
 - logs the value `itm`
 - will not BREAK a chain of functions
+
+Example to-do:
+https://codepen.io/drboolean/pen/zYYPmZO
