@@ -31,10 +31,28 @@ const carsArr = [
     in_stock: false,
   },
 ];
+```
 
+### With Currying
+
+```js
 const isInStock = (d) => d.in_stock === true;
 const curry = (fn) => (p1) => (p2) => fn(p1, p2);
 const curriedFilter = curry((filterFnParam, arr) => arr.filter(filterFnParam));
 const getInStock = curriedFilter(isInStock);
 const onlyInStock = getInStock(cars);
+```
+
+### With Composition
+
+```js
+const inStock = (d) => d.in_stock == true;
+const onlyName = (o) => o["name"];
+const filterOutOfStock = (arr) => arr.filter(inStock);
+const getLast = (arr) => arr[arr.length - 1];
+const comp3 = (f, g, h) => (x) => f(g(h(x)));
+const getLastInStock = comp3(onlyName, getLast, filterOutOfStock);
+const lastInStock = getLastInStock(carsArr);
+console.log("lastInStock");
+console.log(lastInStock);
 ```
