@@ -3,7 +3,7 @@
 ## Get Last In-Stock
 
 ```js
-const CARS = [
+const carsArr = [
   { name: "Ferrari FF", horsepower: 660, dollar_value: 700000, in_stock: true },
   {
     name: "Spyker C12 Zagato",
@@ -32,5 +32,9 @@ const CARS = [
   },
 ];
 
+const isInStock = (d) => d.in_stock === true;
 const curry = (fn) => (p1) => (p2) => fn(p1, p2);
+const curriedFilter = curry((filterFnParam, arr) => arr.filter(filterFnParam));
+const getInStock = curriedFilter(isInStock);
+const onlyInStock = getInStock(cars);
 ```
