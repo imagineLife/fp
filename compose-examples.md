@@ -56,3 +56,12 @@ const lastInStock = getLastInStock(carsArr);
 console.log("lastInStock");
 console.log(lastInStock);
 ```
+
+## Get First Car Name
+
+```js
+// including previous fns
+const firstItem = (arr) => arr[0];
+const firstCarFn = comp2(onlyName, firstItem);
+const firstCarName = firstCarFn(carsArr);
+```
