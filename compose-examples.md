@@ -65,3 +65,15 @@ const firstItem = (arr) => arr[0];
 const firstCarFn = comp2(onlyName, firstItem);
 const firstCarName = firstCarFn(carsArr);
 ```
+
+## Get Average Car Value
+
+```js
+// including previous fns
+const curriedMap = curry((mapFnParam, arr) => arr.map(mapFnParam));
+const justValueItm = (d) => d["dollar_value"];
+const justValues = curriedMap(justValueItm);
+const reduceAvg = (a, b) => a + b;
+const carVals = justValues(carsArr);
+const avgvals = carVals.reduce(reduceAvg) / carVals.length;
+```
